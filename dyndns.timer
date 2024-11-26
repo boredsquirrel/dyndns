@@ -1,0 +1,18 @@
+[Unit]
+Description=Update DynDNS provider IP address
+
+[Timer]
+# start on boot
+OnBootSec=1min
+
+# restart 1h after unit ran
+OnUnitActiveSec=1h
+
+# when start time missed, do immediately retry immediately
+Persistent=true
+
+# wake up system if suspended
+WakeSystem=true
+
+[Install]
+WantedBy=timers.target
