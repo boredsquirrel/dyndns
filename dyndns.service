@@ -1,0 +1,14 @@
+[Unit]
+Description=Update DynDNS provider IP address
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/mullvad-exclude /usr/bin/curl -sSLO "https://YOURPROVIDER"
+
+# when conditions were not met, try again after 15 minutes
+Restart=on-failure
+RestartSec=900
+
+[Install]
+WantedBy=multi-user.target
