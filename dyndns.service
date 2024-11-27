@@ -4,7 +4,7 @@ After=network-online.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/mullvad-exclude /usr/bin/curl --sslv3 --tlsv1.3 "https://YOURPROVIDER"
+ExecStart=/usr/bin/mullvad-exclude /usr/bin/curl --ssl-reqd --tlsv1.2 "https://YOURPROVIDER"
 
 # when conditions were not met, try again after 15 minutes
 Restart=on-failure
