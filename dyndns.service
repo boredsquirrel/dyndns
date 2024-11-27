@@ -5,6 +5,7 @@ After=network-online.target
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/mullvad-exclude /usr/bin/curl --tlsv1.2 "https://YOURPROVIDER"
+ExecStartPost=/usr/bin/notify-send -a "dyndns" "IP address updated!"
 
 # when conditions were not met, try again after 15 minutes
 Restart=on-failure
